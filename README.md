@@ -13,3 +13,5 @@ python app.py
 ### 2. Go to http://127.0.0.1:5000/
 
 Simple as that.
+
+**Note:** This is still under development
