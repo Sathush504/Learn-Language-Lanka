@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress - Learn Language Lanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Learn Language Lanka Logo" class="logo">
+            <h1>Learn Language Lanka</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Languages</button>
+                    <div class="dropdown-content">
+                        <a href="/english">English</a>
+                        <a href="/tamil">Tamil</a>
+                        <a href="/sinhala">Sinhala</a>
+                        <a href="/korean">Korean</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Language Translation Dropdown -->
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="">Translate</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="si">Sinhala</option>
+                <option value="ko">Korean</option>
+            </select>
+        </div>
+    </header>
+    
+    <main>
+        <h2>Progress</h2>
+        <p>Track your learning progress here. You'll find detailed information about your completed lessons, quizzes, and overall performance. Use this page to see how you're advancing in your language learning journey.</p>
+        <!-- Add content here to display user progress -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Learn Language Lanka</p>
+    </footer>
+
+    <script type="text/javascript">
+        function translatePage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language !== "") {
+                var googleTranslateElement = document.createElement("script");
+                googleTranslateElement.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.body.appendChild(googleTranslateElement);
+                
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',  // Default language of your page
+                        includedLanguages: 'en,ta,si,ko',  // Supported languages for translation
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                };
+    
+                // Automatically change the language after the widget loads
+                var interval = setInterval(function() {
+                    if (document.querySelector(".goog-te-combo")) {
+                        document.querySelector(".goog-te-combo").value = language;
+                        document.querySelector(".goog-te-combo").dispatchEvent(new Event("change"));
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+    </script>
+    
+</body>
+</html>

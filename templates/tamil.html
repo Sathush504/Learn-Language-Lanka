@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Tamil - Learn Language Lanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Learn Language Lanka Logo" class="logo">
+            <h1>Learn Language Lanka</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Languages</button>
+                    <div class="dropdown-content">
+                        <a href="/english">English</a>
+                        <a href="/tamil">Tamil</a>
+                        <a href="/sinhala">Sinhala</a>
+                        <a href="/korean">Korean</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Language Translation Dropdown -->
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="">Translate</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="si">Sinhala</option>
+                <option value="ko">Korean</option>
+            </select>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="language-hero tamil-hero">
+            <div class="hero-content">
+                <h2>தமிழ் கற்றுக்கொள்ளுங்கள் எளிமையாக</h2>
+                <p>இன்டராக்டிவ் பாடங்கள், உரை வழிகாட்டிகள் மற்றும் சொற்கள் பயிற்சி.</p>
+                <a href="#alphabet" class="cta-button">அகராதி</a>
+                <a href="#pronunciation" class="cta-button">உரை ஒலி வழிகாட்டிகள்</a>
+                <a href="#games" class="cta-button">சொல் பொருத்தும் விளையாட்டுகள்</a>
+            </div>
+        </section>
+
+        <section id="alphabet" class="learning-section">
+            <div class="container">
+                <h2>தமிழ் எழுத்துக்கள்</h2>
+                <p>தமிழ் எழுத்துக்களை சரியாக உச்சரிக்க கற்றுக்கொள்ளுங்கள்.</p>
+                <!-- Tamil Alphabet Learning Module -->
+                <div class="vowels">
+                    <h3>Vowels (உயிர் எழுத்துக்கள்)</h3>
+                    <div class="letter">அ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_a.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஆ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_aa.mp3') }}')">🔊</button></div>
+                    <div class="letter">இ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_i.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஈ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ii.mp3') }}')">🔊</button></div>
+                    <div class="letter">உ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_u.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஊ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_uu.mp3') }}')">🔊</button></div>
+                    <div class="letter">எ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_e.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஏ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ee.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஐ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ai.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஒ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_o.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஓ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_oo.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஔ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_au.mp3') }}')">🔊</button></div>
+                </div>
+                <div class="consonants">
+                    <h3>Consonants (மெய் எழுத்துக்கள்)</h3>
+                    <div class="letter">க <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ka.mp3') }}')">🔊</button></div>
+                    <div class="letter">ச <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ca.mp3') }}')">🔊</button></div>
+                    <div class="letter">ட <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ta.mp3') }}')">🔊</button></div>
+                    <div class="letter">த <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_tha.mp3') }}')">🔊</button></div>
+                    <div class="letter">ப <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_pa.mp3') }}')">🔊</button></div>
+                    <div class="letter">ய <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ya.mp3') }}')">🔊</button></div>
+                    <div class="letter">ர <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ra.mp3') }}')">🔊</button></div>
+                    <div class="letter">ல <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_la.mp3') }}')">🔊</button></div>
+                    <div class="letter">ம <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ma.mp3') }}')">🔊</button></div>
+                    <div class="letter">வ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_va.mp3') }}')">🔊</button></div>
+                    <div class="letter">ச <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ca.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஜ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ja.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஹ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_ha.mp3') }}')">🔊</button></div>
+                    <div class="letter">ழ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_zha.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஶ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_sha.mp3') }}')">🔊</button></div>
+                    <div class="letter">ஸ <button onclick="playAudio('{{ url_for('static', filename='audio/tamil_sa.mp3') }}')">🔊</button></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pronunciation" class="learning-section">
+            <div class="container">
+                <h2>உரை ஒலி வழிகாட்டிகள்</h2>
+                <p>சரியான சத்தங்கள் கொண்டு கற்றுக்கொள்ளுங்கள்.</p>
+                <!-- Tamil Pronunciation Guides -->
+            </div>
+        </section>
+
+        <section id="games" class="learning-section">
+            <div class="container">
+                <h2>சொல் பொருத்தும் விளையாட்டுகள்</h2>
+                <p>நகைச்சுவையான விளையாட்டுகளுடன் உங்கள் சொற்களை செறிவூட்டுங்கள்.</p>
+                <!-- Tamil Word Matching Games -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Learn Language Lanka</p>
+    </footer>
+
+    <script type="text/javascript">
+        function translatePage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language !== "") {
+                var googleTranslateElement = document.createElement("script");
+                googleTranslateElement.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.body.appendChild(googleTranslateElement);
+                
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',  // Default language of your page
+                        includedLanguages: 'en,ta,si,ko',  // Supported languages for translation
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                };
+    
+                // Automatically change the language after the widget loads
+                var interval = setInterval(function() {
+                    if (document.querySelector(".goog-te-combo")) {
+                        document.querySelector(".goog-te-combo").value = language;
+                        document.querySelector(".goog-te-combo").dispatchEvent(new Event("change"));
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+    </script>
+    
+</body>
+</html>

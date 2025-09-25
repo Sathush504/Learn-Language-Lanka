@@ -1,0 +1,591 @@
+/* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f0f0f0 25%, transparent 25%) -50px 0,
+                linear-gradient(225deg, #e0e0e0 25%, transparent 25%) -50px 0,
+                linear-gradient(315deg, #d0d0d0 25%, transparent 25%),
+                linear-gradient(45deg, #f0f0f0 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: #d5f2f8;
+    background-blend-mode: overlay;
+    overflow-y: auto; /* Ensure the page scrolls */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+html {
+    scroll-behavior: smooth; /* Ensure smooth scrolling in all browsers */
+}
+
+/* Header Styles */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+header .logo {
+    width: 50px;
+    height: auto;
+}
+
+nav a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(90deg, rgba(255,77,0,1) 0%, rgba(255,165,0,1) 50%, rgba(255,255,0,1) 100%);background: linear-gradient(90deg, rgba(10,10,50,1) 0%, rgba(30,30,90,1) 50%, rgba(50,50,150,1) 100%);
+    color: white;
+    position: relative;
+}
+
+.hero .cta-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.hero .cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 0;
+    background: linear-gradient(90deg, rgba(255,189,204,1) 0%, rgba(180,215,255,1) 50%, rgba(135,255,212,1) 100%);
+
+}
+
+.features .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: #333;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.feature img {
+    max-width: 150px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.feature h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .features .container {
+        flex-direction: column;
+    }
+
+    .feature {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .feature img {
+        margin-bottom: 20px;
+    }
+
+    header .container {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
+
+
+/* Resetting and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header Styles */
+header {
+    background-color: #000000;
+    color: white;
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 24px;
+    color: white;
+    margin-left: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu for Languages */
+.dropbtn {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: linear-gradient(90deg, rgba(173,216,230,1) 0%, rgba(135,206,250,1) 50%, rgba(0,191,255,1) 100%);
+
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hero Section Styles */
+.language-hero {
+    background: linear-gradient(135deg, #6fb1fc 25%, #a4c0ff 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.language-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.language-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.language-hero .cta-button {
+    background-color: #ff4757;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 10px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.language-hero .cta-button:hover {
+    background-color: #ff6b81;
+}
+
+/* Learning Sections */
+.learning-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.learning-section .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.learning-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+.learning-section p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #000000;
+    color: white;
+}
+
+
+/* Tamil, Sinhala, Korean Language Hero Styles */
+.tamil-hero {
+    background: linear-gradient(135deg, #ffcc99 25%, #ff9966 100%);
+}
+
+.sinhala-hero {
+    background: linear-gradient(135deg, #99ccff 25%, #6699ff 100%);
+}
+
+.korean-hero {
+    background: linear-gradient(135deg, #ccff99 25%, #66ff66 100%);
+}
+
+/* About Us Hero */
+.about-hero {
+    background: linear-gradient(135deg, #ff6b81 25%, #ff4757 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+}
+
+/* Team Section */
+.team-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.team-section .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.team-member {
+    text-align: center;
+    flex: 1;
+}
+
+.team-member img {
+    border-radius: 50%;
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Language Select Dropdown */
+#languageSelect {
+    padding: 5px 10px;
+    margin-left: 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+#languageSelect option {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* Alphabet Section Styles */
+.alphabet-section {
+    padding: 40px 20px;
+    background-color: #ffffff; /* White background for contrast */
+    text-align: center; /* Center-align text */
+}
+
+.alphabet-section h2 {
+    font-size: 2.5rem; /* Main title size */
+    margin-bottom: 20px; /* Space below the title */
+    color: #333; /* Dark color for the title */
+}
+
+.alphabet-section h3 {
+    font-size: 2rem; /* Subsection title size */
+    margin: 30px 0 15px; /* Space around the subsection title */
+    color: #666; /* Slightly lighter color for subsection titles */
+}
+
+/* Styles for letters */
+.letters {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow letters to wrap to the next line */
+    justify-content: center; /* Center letters horizontally */
+    margin: 0 auto; /* Center the container */
+    gap: 20px; /* Space between letters */
+}
+
+/* Individual letter styles */
+.letter {
+    background-color: #e7f3fe; /* Light background for each letter */
+    border: 1px solid #b0d4ff; /* Light border for contrast */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Padding around the letter */
+    width: 60px; /* Fixed width for uniformity */
+    height: 60px; /* Fixed height for uniformity */
+    display: flex; /* Use flexbox for the content */
+    flex-direction: column; /* Stack letter and button */
+    align-items: center; /* Center content */
+    transition: transform 0.2s; /* Animation for hover effect */
+}
+
+/* Hover effect for letters */
+.letter:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Button styles */
+button {
+    margin-top: 10px; /* Space above the button */
+    padding: 5px 10px; /* Padding for the button */
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #575757; /* Darken the button on hover */
+}
+
+/* Responsive Design for Alphabet Sections */
+@media (max-width: 768px) {
+    .letters {
+        flex-direction: column; /* Stack letters vertically on smaller screens */
+        align-items: center; /* Center letters */
+    }
+    
+    .letter {
+        width: 100%; /* Full width for better usability on mobile */
+        max-width: 150px; /* Maximum width for larger screens */
+    }
+}
+
+
+
+/* Description Section */
+.description-section {
+    background-color: #fff;
+    padding: 50px 20px;
+}
+
+.description-section h2 {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.description-section h3 {
+    font-size: 1.8em;
+    margin-top: 40px;
+    color: #333;
+}
+
+.description-section p, .description-section ul {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.description-section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.description-section ul li {
+    margin-bottom: 10px;
+}
+
+/* Team Section */
+.team-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #007bff;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 250px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.team-member p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,96,1) 35%, rgba(0,212,255,1) 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}

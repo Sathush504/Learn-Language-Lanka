@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Learn Language Lanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Learn Language Lanka Logo" class="logo">
+            <h1>Learn Language Lanka</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Languages</button>
+                    <div class="dropdown-content">
+                        <a href="/english">English</a>
+                        <a href="/tamil">Tamil</a>
+                        <a href="/sinhala">Sinhala</a>
+                        <a href="/korean">Korean</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Language Translation Dropdown -->
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="">Translate</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="si">Sinhala</option>
+                <option value="ko">Korean</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="hero-content">
+                <h2>About Us</h2>
+                <p>Learn Language Lanka is an innovative platform that brings the joy of learning languages to everyone in Sri Lanka. Our mission is to provide simple and interactive tools to help you master English, Tamil, Sinhala, and Korean.</p>
+            </div>
+        </section>
+
+        <section class="description-section">
+            <div class="container">
+                <h2>Welcome to Learn Language Lanka!</h2>
+                <p>At <strong>Learn Language Lanka</strong>, we believe that language is the gateway to culture, understanding, and connection. Our mission is to make language learning accessible, engaging, and effective for everyone. Whether you’re looking to enhance your professional skills, connect with friends and family, or immerse yourself in a new culture, our platform offers a comprehensive and immersive learning experience.</p>
+                
+                <h3>Explore Our Languages</h3>
+                <p>We proudly offer courses in <strong>English, Tamil, Sinhala, and Korean</strong>, each designed to cater to diverse learning styles. Our content is crafted by experienced language educators and native speakers, ensuring that you receive authentic and relevant learning materials. Each language course features:</p>
+                <ul>
+                    <li><strong>Interactive Lessons:</strong> Our lessons incorporate multimedia elements, including videos, quizzes, and interactive exercises, to keep you engaged and motivated.</li>
+                    <li><strong>Cultural Insights:</strong> Learning a language is not just about vocabulary and grammar; it’s about understanding the culture behind it. Our courses include rich cultural content that highlights traditions, idioms, and social norms, providing you with a deeper appreciation of the language.</li>
+                    <li><strong>Real-Life Scenarios:</strong> We use practical examples and situational dialogues to help you apply what you learn in real-world contexts. Practice speaking, listening, reading, and writing through simulated conversations that mimic everyday interactions.</li>
+                </ul>
+                
+                <h3>Personalized Learning Paths</h3>
+                <p>At <strong>Learn Language Lanka</strong>, we understand that every learner is unique. Our platform offers personalized learning paths that adapt to your proficiency level and learning goals. With features like:</p>
+                <ul>
+                    <li><strong>Progress Tracking:</strong> Monitor your learning journey with our intuitive progress tracking system, which helps you set goals and celebrate milestones.</li>
+                    <li><strong>Tailored Exercises:</strong> Receive customized exercises that focus on areas where you need improvement, allowing you to develop a well-rounded skill set.</li>
+                </ul>
+                
+                <h3>Community Support</h3>
+                <p>Join a vibrant community of learners and language enthusiasts! Our forums and discussion boards provide a space for you to connect, share experiences, and practice with peers. Engage with native speakers through our conversation clubs, where you can practice your speaking skills in a friendly and supportive environment.</p>
+                
+                <h3>Advanced Learning Tools</h3>
+                <p>Utilize our cutting-edge technology to enhance your learning experience. Our platform features:</p>
+                <ul>
+                    <li><strong>AI-Powered Language Assistance:</strong> Get instant feedback on your pronunciation and writing through our AI tools, designed to help you refine your skills.</li>
+                    <li><strong>Mobile Learning:</strong> Learn on the go with our mobile-friendly platform, allowing you to access lessons anytime, anywhere.</li>
+                </ul>
+                
+                <h3>Join Us Today!</h3>
+                <p>Whether you are a beginner or looking to refine your skills, <strong>Learn Language Lanka</strong> is here to guide you on your language learning journey. Explore our courses today and unlock new opportunities for personal and professional growth. Dive into the world of languages with us, and let’s embark on this exciting journey together!</p>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <h2>Meet the Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='images/chathura.png') }}" alt="Chathura Hettiarachchi">
+                        <h3>Chathura Hettiarachchi</h3>
+                        <p>Concept Artist</p>
+                        <p>Chathura is the creative mind behind our engaging visual content. His artwork brings life to our lessons, making them more appealing and accessible for learners of all ages.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='images/sathush.png') }}" alt="Sathush Rajamanthri">
+                        <h3>Sathush Rajamanthri</h3>
+                        <p>Web Designer</p>
+                        <p>Sathush is the backbone of our user experience. His designs ensure that the platform is not only visually appealing but also user-friendly, enhancing the overall learning experience.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='images/menush.png') }}" alt="Menush Jagathchandra">
+                        <h3>Menush Jagathchandra</h3>
+                        <p>Graphic Designer</p>
+                        <p>Menush brings his expertise in graphic design to create stunning infographics and visual aids. His contributions help simplify complex concepts, making language learning more intuitive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Learn Language Lanka</p>
+    </footer>
+
+    <script type="text/javascript">
+        function translatePage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language !== "") {
+                var googleTranslateElement = document.createElement("script");
+                googleTranslateElement.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.body.appendChild(googleTranslateElement);
+                
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',  // Default language of your page
+                        includedLanguages: 'en,ta,si,ko',  // Supported languages for translation
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                };
+    
+                // Automatically change the language after the widget loads
+                var interval = setInterval(function() {
+                    if (document.querySelector(".goog-te-combo")) {
+                        document.querySelector(".goog-te-combo").value = language;
+                        document.querySelector(".goog-te-combo").dispatchEvent(new Event("change"));
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+    </script>
+    
+</body>
+</html>

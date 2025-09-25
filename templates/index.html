@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Language Lanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Learn Language Lanka Logo" class="logo">
+            <h1>Learn Language Lanka</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Languages</button>
+                    <div class="dropdown-content">
+                        <a href="/english">English</a>
+                        <a href="/tamil">Tamil</a>
+                        <a href="/sinhala">Sinhala</a>
+                        <a href="/korean">Korean</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Language Translation Dropdown -->
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="">Translate</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="si">Sinhala</option>
+                <option value="ko">Korean</option>
+            </select>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Your Language Learning Journey</h2>
+                <p>Discover and master new languages with interactive tools and engaging content.</p>
+                <a href="/english" class="cta-button">Learn English Now</a>
+                <a href="/tamil" class="cta-button">Learn Tamil Now</a>
+                <a href="/sinhala" class="cta-button">Learn Sinhala Now</a>
+                <a href="/korean" class="cta-button">Learn Korean Now</a>
+                
+            </div>
+        </section>
+        <section class="features">
+            <div class="container">
+                <h2>Our Features</h2>
+                <div class="feature">
+                    <img src="{{ url_for('static', filename='images/letter_sounds.png') }}" alt="Letter Sounds">
+                    <h3>Letter Sounds</h3>
+                    <p>&emsp;Learn how to pronounce letters correctly with audio guides.</p>
+                </div>
+                <div class="feature">
+                    <img src="{{ url_for('static', filename='images/alphabet.png') }}" alt="Alphabets">
+                    <h3>Alphabets</h3>
+                    <p>&emsp;Explore the alphabets of each language with interactive charts.</p>
+                </div>
+                <div class="feature">
+                    <img src="{{ url_for('static', filename='images/word_matching.png') }}" alt="Word Matching Games">
+                    <h3>Word Matching Games</h3>
+                    <p>&emsp;Play games to match words and improve your vocabulary.</p>
+                </div>
+                <div class="feature">
+                    <img src="{{ url_for('static', filename='images/dictionary.png') }}" alt="Dictionary">
+                    <h3>Dictionary</h3>
+                    <p>&emsp;Use our dictionaries to look up words and understand their meanings.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Learn Language Lanka</p>
+    </footer>
+
+    <script type="text/javascript">
+        function translatePage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language !== "") {
+                var googleTranslateElement = document.createElement("script");
+                googleTranslateElement.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.body.appendChild(googleTranslateElement);
+                
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',  // Default language of your page
+                        includedLanguages: 'en,ta,si,ko',  // Supported languages for translation
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                };
+    
+                // Automatically change the language after the widget loads
+                var interval = setInterval(function() {
+                    if (document.querySelector(".goog-te-combo")) {
+                        document.querySelector(".goog-te-combo").value = language;
+                        document.querySelector(".goog-te-combo").dispatchEvent(new Event("change"));
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Korean - Learn Language Lanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Learn Language Lanka Logo" class="logo">
+            <h1>Learn Language Lanka</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Languages</button>
+                    <div class="dropdown-content">
+                        <a href="/english">English</a>
+                        <a href="/tamil">Tamil</a>
+                        <a href="/sinhala">Sinhala</a>
+                        <a href="/korean">Korean</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Language Translation Dropdown -->
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="">Translate</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="si">Sinhala</option>
+                <option value="ko">Korean</option>
+            </select>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="language-hero korean-hero">
+            <div class="hero-content">
+                <h2>한국어 배우기 쉽습니다</h2>
+                <p>상호 작용 학습, 발음 가이드 및 어휘 훈련.</p>
+                <a href="#alphabet" class="cta-button">한글 알파벳</a>
+                <a href="#pronunciation" class="cta-button">발음 가이드</a>
+                <a href="#games" class="cta-button">단어 맞추기 게임</a>
+            </div>
+        </section>
+
+        <section id="alphabet" class="learning-section">
+            <div class="container">
+                <h2>한글 알파벳</h2>
+                <p>정확한 발음을 연습하세요.</p>
+                <!-- Korean Alphabet Learning Module -->
+                <div class="letters">
+                    <h3>Letters</h3>
+                    <div class="letter">ㄱ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_g.png') }}')">🔊</button></div>
+                    <div class="letter">ㄴ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_n.png') }}')">🔊</button></div>
+                    <div class="letter">ㄷ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_d.png') }}')">🔊</button></div>
+                    <div class="letter">ㄹ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_r.png') }}')">🔊</button></div>
+                    <div class="letter">ㅁ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_m.png') }}')">🔊</button></div>
+                    <div class="letter">ㅂ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_b.png') }}')">🔊</button></div>
+                    <div class="letter">ㅅ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_s.png') }}')">🔊</button></div>
+                    <div class="letter">ㅇ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_ng.png') }}')">🔊</button></div>
+                    <div class="letter">ㅈ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_j.png') }}')">🔊</button></div>
+                    <div class="letter">ㅊ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_ch.png') }}')">🔊</button></div>
+                    <div class="letter">ㅋ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_k.png') }}')">🔊</button></div>
+                    <div class="letter">ㅌ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_t.png') }}')">🔊</button></div>
+                    <div class="letter">ㅍ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_p.png') }}')">🔊</button></div>
+                    <div class="letter">ㅎ <button onclick="playAudio('{{ url_for('static', filename='audio/korean_h.png') }}')">🔊</button></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pronunciation" class="learning-section">
+            <div class="container">
+                <h2>발음 가이드</h2>
+                <p>올바른 소리를 연습해보세요.</p>
+                <!-- Korean Pronunciation Guides -->
+            </div>
+        </section>
+
+        <section id="games" class="learning-section">
+            <div class="container">
+                <h2>단어 맞추기 게임</h2>
+                <p>재미있는 게임으로 어휘력을 키우세요.</p>
+                <!-- Korean Word Matching Games -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Learn Language Lanka</p>
+    </footer>
+
+    <script type="text/javascript">
+        function translatePage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language !== "") {
+                var googleTranslateElement = document.createElement("script");
+                googleTranslateElement.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.body.appendChild(googleTranslateElement);
+                
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',  // Default language of your page
+                        includedLanguages: 'en,ta,si,ko',  // Supported languages for translation
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                };
+    
+                // Automatically change the language after the widget loads
+                var interval = setInterval(function() {
+                    if (document.querySelector(".goog-te-combo")) {
+                        document.querySelector(".goog-te-combo").value = language;
+                        document.querySelector(".goog-te-combo").dispatchEvent(new Event("change"));
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+    </script>
+    
+</body>
+</html>

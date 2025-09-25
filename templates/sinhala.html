@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Sinhala - Learn Language Lanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Learn Language Lanka Logo" class="logo">
+            <h1>Learn Language Lanka</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Languages</button>
+                    <div class="dropdown-content">
+                        <a href="/english">English</a>
+                        <a href="/tamil">Tamil</a>
+                        <a href="/sinhala">Sinhala</a>
+                        <a href="/korean">Korean</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Language Translation Dropdown -->
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="">Translate</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="si">Sinhala</option>
+                <option value="ko">Korean</option>
+            </select>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="language-hero sinhala-hero">
+            <div class="hero-content">
+                <h2>සිංහල පහසුවෙන් අධ්‍යයනය කරන්න</h2>
+                <p>අන්තර්ජාල පාඩම්, හඬ නැවතුම් හා පද විධාන.</p>
+                <a href="#alphabet" class="cta-button">අකාරාධී</a>
+                <a href="#pronunciation" class="cta-button">හඬ නැවතුම්</a>
+                <a href="#games" class="cta-button">පද හවුලීම්</a>
+            </div>
+        </section>
+
+        <section id="alphabet" class="learning-section">
+            <div class="container">
+                <h2>සිංහල අකාරාධී</h2>
+                <p>සිංහල අකාරාධීන් නිවැරදිව උච්චාරණය කරයි.</p>
+                <div class="vowels">
+                    <h3>Vowels (ස්වර අකුරු)</h3>
+                    <div class="letter">අ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_a.mp3') }}')">🔊</button></div>
+                    <div class="letter">ආ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_aa.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඇ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ae.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඈ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_aae.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඉ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_i.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඊ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ii.mp3') }}')">🔊</button></div>
+                    <div class="letter">උ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_u.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඌ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_uu.mp3') }}')">🔊</button></div>
+                    <div class="letter">එ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_e.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඒ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ee.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඔ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_o.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඕ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_oo.mp3') }}')">🔊</button></div>
+                </div>
+    
+                <!-- Consonants Section -->
+                <div class="consonants">
+                    <h3>Consonants (යංජන අකුරු)</h3>
+                    <div class="letter">ක <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ka.mp3') }}')">🔊</button></div>
+                    <div class="letter">ග <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ga.mp3') }}')">🔊</button></div>
+                    <div class="letter">ච <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ca.mp3') }}')">🔊</button></div>
+                    <div class="letter">ජ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ja.mp3') }}')">🔊</button></div>
+                    <div class="letter">ට <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ta.mp3') }}')">🔊</button></div>
+                    <div class="letter">ඩ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_da.mp3') }}')">🔊</button></div>
+                    <div class="letter">ත <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_tha.mp3') }}')">🔊</button></div>
+                    <div class="letter">ද <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_dha.mp3') }}')">🔊</button></div>
+                    <div class="letter">ප <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_pa.mp3') }}')">🔊</button></div>
+                    <div class="letter">බ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ba.mp3') }}')">🔊</button></div>
+                    <div class="letter">ම <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ma.mp3') }}')">🔊</button></div>
+                    <div class="letter">ය <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ya.mp3') }}')">🔊</button></div>
+                    <div class="letter">ර <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ra.mp3') }}')">🔊</button></div>
+                    <div class="letter">ල <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_la.mp3') }}')">🔊</button></div>
+                    <div class="letter">ව <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_wa.mp3') }}')">🔊</button></div>
+                    <div class="letter">ශ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_sha.mp3') }}')">🔊</button></div>
+                    <div class="letter">ස <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_sa.mp3') }}')">🔊</button></div>
+                    <div class="letter">හ <button onclick="playAudio('{{ url_for('static', filename='audio/sinhala_ha.mp3') }}')">🔊</button></div>
+                </div>
+                <!-- Sinhala Alphabet Learning Module -->
+            </div>
+        </section>
+
+        <section id="pronunciation" class="learning-section">
+            <div class="container">
+                <h2>හඬ නැවතුම්</h2>
+                <p>නිවැරදි අකාරාධී හඬ සහිත උච්චාරණයක්.</p>
+                <!-- Sinhala Pronunciation Guides -->
+            </div>
+        </section>
+
+        <section id="games" class="learning-section">
+            <div class="container">
+                <h2>පද හවුලීම්</h2>
+                <p>විනෝදාත්මක ක්රීඩා සමඟ ඔබේ පදපසම ශක්තිමත් කරන්න.</p>
+                <!-- Sinhala Word Matching Games -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Learn Language Lanka</p>
+    </footer>
+
+    <script type="text/javascript">
+        function translatePage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language !== "") {
+                var googleTranslateElement = document.createElement("script");
+                googleTranslateElement.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.body.appendChild(googleTranslateElement);
+                
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',  // Default language of your page
+                        includedLanguages: 'en,ta,si,ko',  // Supported languages for translation
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                };
+    
+                // Automatically change the language after the widget loads
+                var interval = setInterval(function() {
+                    if (document.querySelector(".goog-te-combo")) {
+                        document.querySelector(".goog-te-combo").value = language;
+                        document.querySelector(".goog-te-combo").dispatchEvent(new Event("change"));
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+    </script>
+    
+</body>
+</html>

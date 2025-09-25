@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn English - Learn Language Lanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Learn Language Lanka Logo" class="logo">
+            <h1>Learn Language Lanka</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Languages</button>
+                    <div class="dropdown-content">
+                        <a href="/english">English</a>
+                        <a href="/tamil">Tamil</a>
+                        <a href="/sinhala">Sinhala</a>
+                        <a href="/korean">Korean</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Language Translation Dropdown -->
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="">Translate</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="si">Sinhala</option>
+                <option value="ko">Korean</option>
+            </select>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="language-hero">
+            <div class="hero-content">
+                <h2>Master English with Ease</h2>
+                <p>Interactive lessons, pronunciation guides, and vocabulary exercises.</p>
+                <a href="#alphabet" class="cta-button">Start with Alphabet</a>
+                <a href="#pronunciation" class="cta-button">Pronunciation Guides</a>
+                <a href="#games" class="cta-button">Word Matching Games</a>
+            </div>
+        </section>
+
+        <section id="alphabet" class="learning-section">
+            <div class="container">
+                <h2>The English Alphabet</h2>
+                <p>Learn how to pronounce and write the letters of the English alphabet.</p>
+                <!-- Alphabet Learning Module (can add interactive features here) -->
+                <div class="letters">
+                    <h3>Letters</h3>
+                    <div class="letter">A <button onclick="playAudio('{{ url_for('static', filename='audio/english_a.mp3') }}')">🔊</button></div>
+                    <div class="letter">B <button onclick="playAudio('{{ url_for('static', filename='audio/english_b.mp3') }}')">🔊</button></div>
+                    <div class="letter">C <button onclick="playAudio('{{ url_for('static', filename='audio/english_c.mp3') }}')">🔊</button></div>
+                    <div class="letter">D <button onclick="playAudio('{{ url_for('static', filename='audio/english_d.mp3') }}')">🔊</button></div>
+                    <div class="letter">E <button onclick="playAudio('{{ url_for('static', filename='audio/english_e.mp3') }}')">🔊</button></div>
+                    <div class="letter">F <button onclick="playAudio('{{ url_for('static', filename='audio/english_f.mp3') }}')">🔊</button></div>
+                    <div class="letter">G <button onclick="playAudio('{{ url_for('static', filename='audio/english_g.mp3') }}')">🔊</button></div>
+                    <div class="letter">H <button onclick="playAudio('{{ url_for('static', filename='audio/english_h.mp3') }}')">🔊</button></div>
+                    <div class="letter">I <button onclick="playAudio('{{ url_for('static', filename='audio/english_i.mp3') }}')">🔊</button></div>
+                    <div class="letter">J <button onclick="playAudio('{{ url_for('static', filename='audio/english_j.mp3') }}')">🔊</button></div>
+                    <div class="letter">K <button onclick="playAudio('{{ url_for('static', filename='audio/english_k.mp3') }}')">🔊</button></div>
+                    <div class="letter">L <button onclick="playAudio('{{ url_for('static', filename='audio/english_l.mp3') }}')">🔊</button></div>
+                    <div class="letter">M <button onclick="playAudio('{{ url_for('static', filename='audio/english_m.mp3') }}')">🔊</button></div>
+                    <div class="letter">N <button onclick="playAudio('{{ url_for('static', filename='audio/english_n.mp3') }}')">🔊</button></div>
+                    <div class="letter">O <button onclick="playAudio('{{ url_for('static', filename='audio/english_o.mp3') }}')">🔊</button></div>
+                    <div class="letter">P <button onclick="playAudio('{{ url_for('static', filename='audio/english_p.mp3') }}')">🔊</button></div>
+                    <div class="letter">Q <button onclick="playAudio('{{ url_for('static', filename='audio/english_q.mp3') }}')">🔊</button></div>
+                    <div class="letter">R <button onclick="playAudio('{{ url_for('static', filename='audio/english_r.mp3') }}')">🔊</button></div>
+                    <div class="letter">S <button onclick="playAudio('{{ url_for('static', filename='audio/english_s.mp3') }}')">🔊</button></div>
+                    <div class="letter">T <button onclick="playAudio('{{ url_for('static', filename='audio/english_t.mp3') }}')">🔊</button></div>
+                    <div class="letter">U <button onclick="playAudio('{{ url_for('static', filename='audio/english_u.mp3') }}')">🔊</button></div>
+                    <div class="letter">V <button onclick="playAudio('{{ url_for('static', filename='audio/english_v.mp3') }}')">🔊</button></div>
+                    <div class="letter">W <button onclick="playAudio('{{ url_for('static', filename='audio/english_w.mp3') }}')">🔊</button></div>
+                    <div class="letter">X <button onclick="playAudio('{{ url_for('static', filename='audio/english_x.mp3') }}')">🔊</button></div>
+                    <div class="letter">Y <button onclick="playAudio('{{ url_for('static', filename='audio/english_y.mp3') }}')">🔊</button></div>
+                    <div class="letter">Z <button onclick="playAudio('{{ url_for('static', filename='audio/english_z.mp3') }}')">🔊</button></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pronunciation" class="learning-section">
+            <div class="container">
+                <h2>Pronunciation Guides</h2>
+                <p>Practice correct word sounds with audio support.</p>
+                <!-- Audio clips and pronunciation exercises can go here -->
+            </div>
+        </section>
+
+        <section id="games" class="learning-section">
+            <div class="container">
+                <h2>Word Matching Games</h2>
+                <p>Strengthen your vocabulary with fun and engaging games.</p>
+                <!-- Add interactive games or quizzes here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Learn Language Lanka</p>
+    </footer>
+
+    <script type="text/javascript">
+        function translatePage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language !== "") {
+                var googleTranslateElement = document.createElement("script");
+                googleTranslateElement.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.body.appendChild(googleTranslateElement);
+                
+                window.googleTranslateElementInit = function() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',  // Default language of your page
+                        includedLanguages: 'en,ta,si,ko',  // Supported languages for translation
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                };
+    
+                // Automatically change the language after the widget loads
+                var interval = setInterval(function() {
+                    if (document.querySelector(".goog-te-combo")) {
+                        document.querySelector(".goog-te-combo").value = language;
+                        document.querySelector(".goog-te-combo").dispatchEvent(new Event("change"));
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+    </script>
+    
+</body>
+</html>
+
+
